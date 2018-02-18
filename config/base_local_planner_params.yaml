@@ -1,0 +1,7 @@
+TrajectoryPlannerROS:
+
+  holonomic_robot: false
+  yaw_goal_tolerance: 0.03      # The tolerance in radians for the controller in yaw/rotation when achieving its goal default 0.05 radians
+  xy_goal_tolerance : 0.05 # The tolerance in meters for the controller in the x & y distance when achieving a goal default 0.1 meters
+  sim_time: 1.0 # default 1.0
+  meter_scoring: false 
