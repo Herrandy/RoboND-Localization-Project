@@ -1,8 +1,9 @@
 <?xml version='1.0'?>
 
-<robot name="udacity_bot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="udacity_bot_v2" xmlns:xacro="http://www.ros.org/wiki/xacro">
   
   <xacro:include filename="$(find udacity_bot)/urdf/udacity_bot.gazebo" />	
+  <xacro:include filename="$(find udacity_bot)/urdf/gripper.xacro" />
   <link name="robot_footprint"></link>
 
   <joint name="robot_footprint_joint" type="fixed">
@@ -86,6 +87,23 @@
         <sphere radius="0.05"/>
       </geometry>
     </visual>
+
+   <visual name='upper_body_visual'>
+     <origin xyz="0.05 0.0 0.14" rpy="0.0 0.0 0.0"/>
+     <geometry>
+       <cylinder radius="0.12" length="0.20"/>
+     </geometry>
+     <material name="blue">
+       <color rgba="0 0 0.8 1"/>
+     </material>
+   </visual>
+
+   <collision>
+     <origin xyz="0.05 0.0 0.14" rpy="0.0 0.0 0.0"/>
+     <geometry>
+       <cylinder radius="0.12" length="0.20"/>
+     </geometry>
+   </collision>
 
   </link>
  
@@ -202,13 +220,13 @@
 <!--LASER-->
 <link name="hokuyo">
    <inertial>
-     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+     <origin xyz="-0.02 0.0 0.18" rpy="0.0 0.0 0.0"/>
      <mass value="0.1"/>
       <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6"/>
     </inertial>
 
    <visual>
-     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+     <origin xyz="-0.02 0.0 0.18" rpy="0.0 0.0 0.0"/>
      <geometry>
 	   <mesh filename="package://udacity_bot/meshes/hokuyo.dae"/>
      </geometry>
@@ -216,7 +234,7 @@
    </visual>
 
    <collision>
-     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+     <origin xyz="-0.02 0.0 0.18" rpy="0.0 0.0 0.0"/>
      <geometry>
        <box size="0.1 .1 .1"/>
      </geometry>

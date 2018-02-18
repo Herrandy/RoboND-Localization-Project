@@ -10,8 +10,8 @@ initial_pose_y: 0.0 # added
 initial_pose_a: -0.785 # added
 
 
-robot_radius: 0.13 
-inflation_radius: 0.13 # default was
+robot_radius: 0.23 
+inflation_radius: 0.23 # default was
 
 observation_sources: laser_scan_sensor
 
